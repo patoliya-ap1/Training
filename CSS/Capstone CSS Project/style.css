@@ -1,0 +1,109 @@
+:root {
+  --primary-color: darkcyan;
+  --font-primary-color: whitesmoke;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Navigation bar */
+
+header {
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+}
+
+header div h1 {
+  color: var(--font-primary-color);
+}
+
+header div span {
+  color: rgb(18, 14, 9);
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar {
+  margin-left: auto;
+}
+
+.navbar ul li {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--font-primary-color);
+}
+
+/* layout */
+
+.layout {
+  display: flex;
+  padding: 20px;
+}
+
+/* main-section */
+
+.main-section {
+  width: 80vw;
+  height: 80vh;
+  padding: 10px;
+}
+
+.main-text {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.normal-size-text {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.activity-list {
+  margin-top: 1rem;
+  padding: 0;
+  list-style-position: inside;
+}
+
+/* sidebar */
+
+.sidebar {
+  border-left: 1px solid black;
+  padding: 10px;
+  width: 20vw;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-info p a {
+  text-decoration: none;
+  color: black;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--font-primary-color);
+}

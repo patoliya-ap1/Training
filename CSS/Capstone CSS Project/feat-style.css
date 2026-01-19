@@ -1,0 +1,291 @@
+:root {
+  --primary-color: darkcyan;
+  --secondary-color: rgb(18, 85, 85);
+  --font-primary-color: whitesmoke;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Navigation bar */
+
+header {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+header div h1 {
+  color: var(--font-primary-color);
+}
+header div img {
+  transition: transform 0.5s ease;
+}
+
+header div img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+header div span {
+  color: rgb(18, 14, 9);
+}
+
+.navbar {
+  margin-left: auto;
+}
+
+.navbar ul {
+  display: none;
+}
+
+/* nav-toggle-container */
+
+.nav-toggle-btn {
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
+  color: var(--font-primary-color);
+  margin-left: auto;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.nav-toggle-btn:hover {
+  font-size: 3.2rem;
+}
+
+/* navbar-mobile */
+
+.navbar-mobile {
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  width: 30vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  transition: display 0.5 ease;
+}
+
+.nav-list-mobile {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  list-style: none;
+}
+.nav-list-mobile li {
+  margin: 1rem 1rem;
+}
+
+.nav-list-mobile li a {
+  text-decoration: none;
+  color: var(--font-primary-color);
+}
+
+.nav-list-mobile li a:hover {
+  color: rgb(180, 210, 215);
+}
+
+/* footer */
+footer {
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: var(--font-primary-color);
+}
+
+/* hero-banner */
+
+.hero-banner {
+  text-align: center;
+  width: 99vw;
+  position: relative;
+}
+
+.hero-banner > img {
+  max-width: 99%;
+  margin: 0 auto;
+}
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay h2 {
+  color: whitesmoke;
+  font-size: 4vmin;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.overlay h2:hover {
+  transform: scale(1.1);
+}
+
+.overlay button {
+  background-color: var(--primary-color);
+  color: whitesmoke;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.overlay button:hover {
+  transform: scale(1.1);
+}
+
+/* features-card */
+
+.features-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 4rem;
+  margin-left: 10px;
+  gap: 1rem;
+}
+
+.features-card div {
+  border: 1px solid var(--primary-color);
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  padding: 1rem;
+}
+
+.features-card div:hover {
+  transform: scale(0.9);
+}
+
+.features-card div h3 {
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.features-card div p {
+  margin-bottom: 2rem;
+}
+
+/* testimonials */
+.testimonials-container {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.testimonials-container img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.testimonials-container p {
+  max-width: 700px;
+  padding: 1rem;
+}
+
+.show-navbar {
+  display: block;
+}
+
+.hide-navbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  /* features-card */
+
+  .features-card {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .features-card div {
+    padding: 1rem;
+    width: 40%;
+  }
+
+  /* testimonials-container */
+
+  .testimonials-container {
+    flex-wrap: nowrap;
+  }
+
+  /* header and navigation */
+  .nav-toggle-btn {
+    display: none;
+  }
+  .navbar-mobile {
+    display: none;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+  }
+
+  .navbar ul li {
+    padding-left: 1rem;
+    list-style: none;
+    transition: transform 0.5s ease;
+  }
+
+  .navbar ul li:hover {
+    transform: scale(0.9);
+  }
+
+  .nav-list li a {
+    text-decoration: none;
+    color: var(--font-primary-color);
+    transition: transform 0.5s ease;
+  }
+}
+
+@media (min-width: 1080px) {
+  /* features-card */
+
+  .features-card {
+    flex-wrap: nowrap;
+    padding: 1rem;
+  }
+
+  /* testimonials-container */
+
+  .testimonials-container {
+    flex-wrap: nowrap;
+  }
+
+  .navbar-mobile {
+    display: none;
+  }
+
+  .features-card {
+    flex-wrap: nowrap;
+  }
+}

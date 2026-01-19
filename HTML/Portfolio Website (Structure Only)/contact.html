@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="this page is for contact to Ankit Patel"
+    />
+    <meta name="keyword" content="contact,ankit patel" />
+    <meta name="author" content="Ankit Patel" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ankit Patel - Contact</title>
+    <link rel="icon" href="./assets/fav.png" />
+  </head>
+  <body>
+    <header>
+      <h1>Ankit Patel</h1>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+<li><a href="./blog.html">Blog</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Contact Page</h1>
+      <section>
+        <p><strong>Email:</strong>ankitpatel.web@gmail.com</p>
+        <a href="mailto:ankitpatel.web@gmail.com">Send Email</a>
+        <p>
+          <strong>Linkedin:</strong>
+          <a href="https://www.linkedin.com/in/ankitpatel001/" target="_blank"
+            >linkedin.com/in/ankitpatel001/</a
+          >
+        </p>
+        <p>
+          <strong>Github:</strong>
+          <a href="https://github.com/AnkitPatel00" target="_blank"
+            >github.com/AnkitPatel00</a
+          >
+        </p>
+        <a href="tel:123456789">Call</a>
+      </section>
+<br/>
+<hr/>
+      <section>
+        <h2>SignUp Form</h2>
+        <form method="get">
+          <label for="name">Name</label>
+          <br />
+          <input type="text" minlength="5" maxlength="50" placeholder="Name" id="name" required />
+          <br />
+          <br/>
+          <label for="email">Email</label>
+          <br />
+          <input type="email" minlength="4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Email" id="email" aria-describedby="emailInfo" required />
+          <span id="emailInfo">Enter Email for SignUp</span>
+          <br />
+          <br/>
+          <label for="password">Password</label>
+          <br />
+          <input type="password" placeholder="Password" id="password" required/>
+          <br />
+          <br/>
+          <label for="confirmPassword">Confirm Password</label>
+          <br />
+          <input type="password" placeholder="Confirm Password" id="confirmPassword" required/>
+          <br />
+          <br/>
+          <labe for="phone">Phone</label>
+            <br />
+          <input type="tel" pattern="[0-9]{10}" placeholder="Enter Phone Number" id="phone" title="Enter Correct Phone Number" required/>
+          <br />
+          <br />
+          <label >Gender</label>
+          <br />
+          <input type="radio" name="gender" value="Male" id="male" required/>
+          <label for="male">Male</label>
+          <input type="radio" name="gender" value="Female" id="female" required/>
+          <label for="female">Female</label>
+          <input type="radio" name="gender" value="Other" id="other" required/>
+          <label for="other">Other</label>
+          <br />
+          <br />
+          <label for="country">Country</label>
+          <select id="country" value="India" required>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Russia">Russia</option>
+            <option value="China">China</option>
+          </select>
+          <br/>
+          <br/>
+          <input type="checkbox" id="termchk" required/>
+          <label for="termchk">Tern & Conditions</label>
+          <br/>
+          <br/>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>2026 &copy; Ankit Patel</p>
+    </footer>
+  </body>
+</html>
