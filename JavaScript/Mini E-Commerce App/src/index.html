@@ -9,7 +9,9 @@
     <script src="./script.js" type="module"></script>
   </head>
   <body>
-    <header class="bg-yellow-500 p-4 flex justify-between items-center">
+    <header
+      class="sticky w-full top-0 z-10 bg-yellow-500 p-4 flex justify-between items-center"
+    >
       <h1 class="text-2xl">E-Com App</h1>
       <nav>
         <ul class="flex items-center space-x-3 me-3">
@@ -33,7 +35,6 @@
             style="
               border: solid 1px;
               border-radius: 1rem;
-              opacity: 90%;
               border-color: rgba(0, 0, 0, 0.2);
             "
             placeholder="Search"
@@ -41,6 +42,13 @@
           />
         </div>
         <h2 class="text-center my-5">Products</h2>
+        <p id="fetchMessage" class="text-red-500 text-center"></p>
+        <div
+          id="loadingELe"
+          class="hidden flex justify-center h-[100%] items-center"
+        >
+          <p>Loading...</p>
+        </div>
         <div
           id="product-container"
           class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
@@ -49,10 +57,14 @@
       <section
         class="fixed top-0 right-0 h-full w-[80%] sm:w-[60%] md:w-[50%] lg:w-[35%] bg-slate-200 rounded-l-xl shadow-md transition-transform duration-300 transform translate-x-full"
         id="cartContainer"
+        style="z-index: 2000"
       >
         <div class="flex justify-between items-center p-4">
           <div>
             <p>Cart Total:<span id="totalPriceEle" class="ms-2">$0</span></p>
+          </div>
+          <div>
+            <p>Items:<span id="totalItems" class="ms-2">0</span></p>
           </div>
           <button class="w-10 h-10" id="cartPanelCloseBtn">
             <img src="./assets/close-panel.png" />

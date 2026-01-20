@@ -5,6 +5,8 @@ export function renderCart(cart) {
 
   const totalPriceEle = document.querySelector("#totalPriceEle");
 
+  const totalItems = document.querySelector("#totalItems");
+
   totalPriceEle.textContent = `$${cart.totalPrice().toFixed(2)}`;
 
   const cartItemsContainer = document.querySelector("#cartItemsContainer");
@@ -12,6 +14,7 @@ export function renderCart(cart) {
   cartItemsContainer.innerHTML = "";
 
   cartItems.textContent = cart.uniqueItems.size;
+  totalItems.textContent = cart.uniqueItems.size;
 
   const allItems = cart.allItems();
 
@@ -25,13 +28,11 @@ export function renderCart(cart) {
     // image container
 
     const imgDiv = document.createElement("div");
-    imgDiv.style.width = "100px";
+    imgDiv.style.width = "90px";
 
     // info container
 
     const infoDiv = document.createElement("div");
-
-    infoDiv.classList.add("ms-5");
 
     // title
     const titleEle = document.createElement("p");

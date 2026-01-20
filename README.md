@@ -3,3 +3,4 @@
 - Ubuntu
 - HTML
 - CSS
+- JavaScript

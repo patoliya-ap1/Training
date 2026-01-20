@@ -5,11 +5,16 @@ import { cartSave, loadCartItems } from "./cartSave.js";
 
 const productContainer = document.querySelector("#product-container");
 
+const fetchMessage = document.querySelector("#fetchMessage");
+
+const loadingELe = document.querySelector("#loadingELe");
+
 const cart = new Cart();
 let products;
 
 async function fetchApi(searchVal) {
   try {
+    loading();
     const res = await fetch(
       `https://dummyjson.com/products${searchVal ? `/search?q=${searchVal}&` : ``}?limit=10`,
     );
@@ -20,16 +25,30 @@ async function fetchApi(searchVal) {
     const data = await res.json();
     products = await productClassObj(data.products);
 
+    loading();
     renderProducts(data.products);
     loadCartItems(cart);
+    domMessage("");
   } catch (error) {
-    console.log("error", error.message || "unknown fetching error");
+    domMessage(error.message || "unknown fetching error");
   }
+}
+
+// loading
+
+function loading() {
+  loadingELe.classList.toggle("hidden");
+}
+
+// error message
+
+function domMessage(message) {
+  fetchMessage.textContent = message;
 }
 
 loadCartItems(cart);
 
-// fetchApi();
+fetchApi();
 
 const searchInput = document.querySelector("#searchInput");
 

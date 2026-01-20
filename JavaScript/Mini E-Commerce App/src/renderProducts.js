@@ -7,13 +7,8 @@ export function renderProducts(products) {
     // card
 
     const productCard = document.createElement("div");
-    productCard.style.border = "1px solid rgba(0, 0, 0, 0.2)";
-    productCard.style.borderRadius = "1rem";
-    productCard.style.padding = "1rem";
 
-    productCard.style.cursor = "pointer";
-
-    productCard.className = "shadow-md";
+    productCard.className = "shadow-md productCard";
 
     const productImg = document.createElement("img");
     productImg.src = thumbnail;

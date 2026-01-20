@@ -1,6 +1,30 @@
-.cartContainer{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Robot", sans-serif;
+}
+
+.cartContainer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.cartContainer:hover {
+  transform: scale(96%);
+}
+
+.productCard {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.productCard:hover {
+  transform: scale(95%);
 }
