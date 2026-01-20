@@ -28,3 +28,20 @@ body {
 .productCard:hover {
   transform: scale(95%);
 }
+
+.addToCartBtn {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: rgba(245, 158, 11, 1);
+}
+
+.addToCartBtn-outOfStock {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: rgb(148, 136, 116);
+  color: whitesmoke;
+}

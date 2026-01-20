@@ -1,6 +1,4 @@
 export function renderCart(cart) {
-  console.log(cart);
-
   const cartItems = document.querySelector("#cartItems");
 
   const totalPriceEle = document.querySelector("#totalPriceEle");

@@ -2,6 +2,7 @@ import { renderProducts } from "./renderProducts.js";
 import { productClassObj, Cart } from "./setsAndMaps.js";
 import { renderCart } from "./renderCart.js";
 import { cartSave, loadCartItems } from "./cartSave.js";
+import { disableCartBtn } from "./disableCartButton.js";
 
 const productContainer = document.querySelector("#product-container");
 
@@ -9,7 +10,7 @@ const fetchMessage = document.querySelector("#fetchMessage");
 
 const loadingELe = document.querySelector("#loadingELe");
 
-const cart = new Cart();
+export const cart = new Cart();
 let products;
 
 async function fetchApi(searchVal) {
@@ -28,6 +29,7 @@ async function fetchApi(searchVal) {
     loading();
     renderProducts(data.products);
     loadCartItems(cart);
+    disableCartBtn();
     domMessage("");
   } catch (error) {
     domMessage(error.message || "unknown fetching error");
@@ -46,7 +48,7 @@ function domMessage(message) {
   fetchMessage.textContent = message;
 }
 
-loadCartItems(cart);
+// loadCartItems(cart);
 
 fetchApi();
 
@@ -73,8 +75,13 @@ productContainer.addEventListener("click", (e) => {
   const productId = Number(e.target.dataset.id);
 
   cart.add(productId, products);
+
   cartSave(cart.allItems());
   renderCart(cart);
+
+  if (cart.getOutOfStock().length) {
+    disableCartBtn();
+  }
 });
 
 // toggle cart

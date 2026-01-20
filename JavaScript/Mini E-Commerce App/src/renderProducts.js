@@ -43,12 +43,9 @@ export function renderProducts(products) {
     // cart button
 
     const productCartBtn = document.createElement("button");
+    productCartBtn.id = "addToCartBtn";
     productCartBtn.textContent = "Add To Cart";
-    productCartBtn.style.fontSize = "0.8rem";
-    productCartBtn.style.marginTop = "1rem";
-    productCartBtn.classList.add("bg-yellow-500", "shadow-md");
-    productCartBtn.style.padding = "0.5rem";
-    productCartBtn.style.borderRadius = "1rem";
+    productCartBtn.className = "addToCartBtn shadow-md";
     productCartBtn.dataset.id = id;
 
     // append
