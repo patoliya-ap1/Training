@@ -1,0 +1,79 @@
+import { renderProducts } from "./renderProducts.js";
+import { productClassObj, Cart } from "./setsAndMaps.js";
+import { renderCart } from "./renderCart.js";
+import { cartSave, loadCartItems } from "./cartSave.js";
+
+const productContainer = document.querySelector("#product-container");
+
+const cart = new Cart();
+let products;
+
+async function fetchApi(searchVal) {
+  try {
+    const res = await fetch(
+      `https://dummyjson.com/products${searchVal ? `/search?q=${searchVal}&` : ``}?limit=10`,
+    );
+
+    if (!res.ok) {
+      throw new Error("error while fetching products");
+    }
+    const data = await res.json();
+    products = await productClassObj(data.products);
+
+    renderProducts(data.products);
+    loadCartItems(cart);
+  } catch (error) {
+    console.log("error", error.message || "unknown fetching error");
+  }
+}
+
+loadCartItems(cart);
+
+// fetchApi();
+
+const searchInput = document.querySelector("#searchInput");
+
+searchInput.addEventListener("input", debounceFn(fetchApi, 1000));
+
+function debounceFn(fn, delayTime) {
+  let timerId = null;
+  return function (e) {
+    const searchVal = e.target.value;
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      fn(searchVal);
+    }, delayTime);
+  };
+}
+
+// add to cart
+
+productContainer.addEventListener("click", (e) => {
+  if (!e.target.matches("button")) return;
+
+  const productId = Number(e.target.dataset.id);
+
+  cart.add(productId, products);
+  cartSave(cart.allItems());
+  renderCart(cart);
+});
+
+// toggle cart
+
+const cartContainer = document.querySelector("#cartContainer");
+
+const cartShowBtn = document.querySelector("#cartShowBtn");
+
+const cartPanelCloseBtn = document.querySelector("#cartPanelCloseBtn");
+
+cartShowBtn.addEventListener("click", () => {
+  if (cartContainer.classList.contains("translate-x-full")) {
+    cartContainer.classList.replace("translate-x-full", "translate-x-0");
+  } else {
+    cartContainer.classList.replace("translate-x-0", "translate-x-full");
+  }
+});
+
+cartPanelCloseBtn.addEventListener("click", () => {
+  cartContainer.classList.replace("translate-x-0", "translate-x-full");
+});
