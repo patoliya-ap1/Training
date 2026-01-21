@@ -13,6 +13,8 @@ const loadingELe = document.querySelector("#loadingELe");
 export const cart = new Cart();
 let products;
 
+// fetch Products
+
 async function fetchApi(searchVal) {
   try {
     loading();
@@ -48,9 +50,9 @@ function domMessage(message) {
   fetchMessage.textContent = message;
 }
 
-// loadCartItems(cart);
-
 fetchApi();
+
+// search Debounce
 
 const searchInput = document.querySelector("#searchInput");
 

@@ -10,6 +10,7 @@
     <script src="./script.js" type="module"></script>
   </head>
   <body>
+    <!-- navbar -->
     <header
       class="sticky w-full top-0 z-10 bg-yellow-500 p-4 flex justify-between items-center"
     >
@@ -27,8 +28,10 @@
         </ul>
       </nav>
     </header>
+    <!-- main -->
     <main class="m-4">
       <section>
+        <!-- search -->
         <div class="flex justify-center my-3">
           <input
             class="w-[90%] px-3 py-1 border-slate-600"
@@ -43,6 +46,7 @@
           />
         </div>
         <h2 class="text-center my-5">Products</h2>
+        <!-- message and Loading -->
         <p id="fetchMessage" class="text-red-500 text-center"></p>
         <div
           id="loadingELe"
@@ -50,11 +54,13 @@
         >
           <p>Loading...</p>
         </div>
+        <!-- Product Container -->
         <div
           id="product-container"
           class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
         ></div>
       </section>
+      <!-- Cart Side bar -->
       <section
         class="fixed top-0 right-0 h-full w-[80%] sm:w-[60%] md:w-[50%] lg:w-[35%] bg-slate-200 rounded-l-xl shadow-md transition-transform duration-300 transform translate-x-full"
         id="cartContainer"
