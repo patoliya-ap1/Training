@@ -1,0 +1,7 @@
+export interface Contact{
+    id:string;
+    name:string;
+    email?:string;
+    phones:string[];
+    tags?:string[];
+}

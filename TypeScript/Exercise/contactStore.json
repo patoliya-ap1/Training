@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1769058000184",
+    "name": "John",
+    "email": "john@x.com",
+    "phones": []
+  },
+  {
+    "id": "1769058227288",
+    "name": "Alice",
+    "email": "alice@x.com",
+    "phones": []
+  },
+  {
+    "id": "1769064001869",
+    "name": "Bob",
+    "email": "bob@x.com",
+    "phones": []
+  },
+  {
+    "id": "1769064184087",
+    "name": "Sam",
+    "email": "sam@x.com",
+    "phones": []
+  }
+]

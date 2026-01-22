@@ -1,0 +1,14 @@
+.li-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  transition: transform 0.3s ease-out;
+}
+
+.li-flex:hover {
+  transform: scale(0.95);
+}
+
+.li-adults {
+  border-color: rgb(113, 183, 183);
+}
