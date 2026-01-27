@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import porfilePlaceholder from "../assets/profile-placeholder.jpg";
 
 const UserCard = ({ userInfo }) => {
@@ -47,10 +48,14 @@ const UserCard = ({ userInfo }) => {
 
       {/* stats */}
       <div className="grid grid-cols-1 sm:grid-cols-[31%_31%_31%] mt-4 gap-4 box-border justify-center shadow-xl p-4">
-        <div className="bg-cyan-600 rounded-md p-3 text-center shadow-xl">
-          <p className="text-2xl text-slate-100">{public_repos || "unknown"}</p>
-          <p className="text-sm text-slate-300">Repos</p>
-        </div>
+        <Link to={`repos/${username}`}>
+          <div className="bg-cyan-600 rounded-md p-3 text-center shadow-xl cursor-pointer">
+            <p className="text-2xl text-slate-100">
+              {public_repos || "unknown"}
+            </p>
+            <p className="text-sm text-slate-300">Repos</p>
+          </div>
+        </Link>
         <div className="bg-gray-600 rounded-md p-3 text-center shadow-xl">
           <p className="text-2xl text-slate-100">{followers || "unknown"}</p>
           <p className="text-sm text-slate-300">Followers</p>

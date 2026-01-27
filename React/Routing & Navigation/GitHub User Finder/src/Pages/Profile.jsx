@@ -1,20 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import UserCard from "./UserCard";
+import { useState, useEffect } from "react";
 import Loading from "../Loading";
+import UserCard from "../Component/UserCard";
 
-const GithubUserFinder = () => {
-  const [gitHubUserName, setGitHubUserName] = useState("");
+const Profile = () => {
+  const [gitHubUserName, setGitHubUserName] = useState("patoliya-ap1");
   const [userInfo, setUserInfo] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const handleUsernameInput = (e) => {
-    const value = e.target.value;
-    setGitHubUserName(value);
-    if (value === "") {
-      setUserInfo({});
-    }
-  };
 
   const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
@@ -49,42 +41,16 @@ const GithubUserFinder = () => {
     }
   }
 
-  const isMount = useRef(false);
-
-  //   no onMount + debounce
+  //   on MOunt
 
   useEffect(() => {
-    if (!isMount.current || gitHubUserName.trim("") === "") {
-      isMount.current = true;
-      setError("");
-      return;
-    }
-    let timerId;
-    timerId = setTimeout(() => {
-      fetchApi();
-    }, 1000);
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [gitHubUserName]);
+    // fetchApi();
+  }, []);
 
   return (
-    <>
-      <div className="flex justify-center flex-wrap mt-4 ">
-        <div className="shadow-md p-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] rounded-md bg-slate-50">
-          <h1 className="mb-2 text-slate-500">Github Users Search</h1>
-          <div>
-            <input
-              className="shadow rounded-md bg-white p-2 focus:outline-0 focus:bg-slate-200"
-              type="text"
-              placeholder="Enter Username"
-              value={gitHubUserName}
-              onChange={handleUsernameInput}
-            />
-          </div>
-        </div>
-      </div>
-
+    <div className="p-4 bg-slate-200 h-screen">
+      <h2 className="text-center text-slate-400">Profile</h2>
+      {/*  */}
       {error && (
         <div className="flex justify-center flex-wrap mt-4 ">
           <div className="bg-red-200 text-red-500 p-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] rounded-md">
@@ -92,31 +58,29 @@ const GithubUserFinder = () => {
           </div>
         </div>
       )}
-
       {loading && (
         <div className="flex justify-center mt-5">
           <Loading />
         </div>
       )}
-
       {!userInfo.id && !loading && !error && (
         <div className="flex justify-center flex-wrap mt-4   ">
           <div className="p-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] rounded-md shadow-md">
             <div className="flex justify-center items-center h-60">
               <h3 className="text-slate-500">
-                Please Search Username for Github Profile.
+                Contact Developer for Github Profile.
               </h3>
             </div>
           </div>
         </div>
       )}
-
       {userInfo.id && !loading && (
         <div className="flex justify-center">
           <UserCard userInfo={userInfo} />
         </div>
       )}
-    </>
+    </div>
   );
 };
-export default GithubUserFinder;
+
+export default Profile;
