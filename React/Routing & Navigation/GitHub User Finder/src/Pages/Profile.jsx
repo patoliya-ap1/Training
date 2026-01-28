@@ -44,7 +44,7 @@ const Profile = () => {
   //   on MOunt
 
   useEffect(() => {
-    // fetchApi();
+    fetchApi();
   }, []);
 
   return (

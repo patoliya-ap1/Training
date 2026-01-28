@@ -48,7 +48,7 @@ const UserCard = ({ userInfo }) => {
 
       {/* stats */}
       <div className="grid grid-cols-1 sm:grid-cols-[31%_31%_31%] mt-4 gap-4 box-border justify-center shadow-xl p-4">
-        <Link to={`repos/${username}`}>
+        <Link to={`/repos/${username}`}>
           <div className="bg-cyan-600 rounded-md p-3 text-center shadow-xl cursor-pointer">
             <p className="text-2xl text-slate-100">
               {public_repos || "unknown"}
