@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import UserCard from "./UserCard";
+import { useEffect, useRef, useState, lazy } from "react";
 import Loading from "../Loading";
 import Banner1 from "../assets/banner1.jpg";
 import Banner2 from "../assets/banner2.jpg";
 import Banner3 from "../assets/banner3.jpg";
 import Banner from "./Banner";
+
+const UserCard = lazy(() => import("../Component/UserCard"));
 
 const GithubUserFinder = () => {
   const [gitHubUserName, setGitHubUserName] = useState("");
@@ -76,21 +77,21 @@ const GithubUserFinder = () => {
 
   // banner Timer
 
-
-
   return (
     <>
-      <div className="flex justify-center flex-wrap mt-4 ">
-        <div className="shadow-md p-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] rounded-md bg-slate-50 dark:bg-slate-800">
-          <h1 className="mb-2 text-slate-500">Github Users Search</h1>
-          <div>
-            <input
-              className="shadow rounded-md bg-white p-2 focus:outline-0 focus:bg-slate-200 dark:bg-gray-700 dark:focus:bg-slate-600 dark:placeholder-gray-400 animate-pulse focus:animate-none"
-              type="text"
-              placeholder="Enter Username"
-              value={gitHubUserName}
-              onChange={handleUsernameInput}
-            />
+      <div className="sticky top-20">
+        <div className="flex justify-center flex-wrap mt-4 ">
+          <div className="shadow-md p-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[50%] rounded-md bg-slate-50 dark:bg-slate-800">
+            <h1 className="mb-2 text-slate-500">Github Users Search</h1>
+            <div className="overflow-hidden">
+              <input
+                className="shadow-md rounded-md bg-white p-2 focus:outline-0 focus:bg-slate-200 dark:bg-gray-700 dark:focus:bg-slate-600 dark:placeholder-gray-400 animate-pulse focus:animate-none"
+                type="text"
+                placeholder="Enter Username"
+                value={gitHubUserName}
+                onChange={handleUsernameInput}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -104,7 +105,7 @@ const GithubUserFinder = () => {
       )}
 
       {loading && (
-        <div className="flex justify-center h-60 mt-5">
+        <div className="flex justify-center h-60 items-center mt-5">
           <Loading />
         </div>
       )}

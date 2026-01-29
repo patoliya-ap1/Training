@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+.sticky-search {
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+}

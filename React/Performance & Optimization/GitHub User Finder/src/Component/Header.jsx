@@ -10,11 +10,14 @@ const Header = () => {
     reducerValues: { theme, sidebarStatus, isLoggedIn },
     toggleThemeHandler,
     toggleSidebar,
+    handleLogin,
   } = useGLobalContext();
 
+  console.log(theme);
+
   return (
-    <header className="bg-slate-600 p-4 flex justify-center dark:bg-gray-800">
-      <div className="flex justify-between items-center w-[100%] md:w-[90%]">
+    <header className="bg-slate-600 p-4 flex justify-center dark:bg-gray-800 sticky w-full top-0 z-10">
+      <div className="flex justify-between items-center w-[100%] md:w-[90%] ">
         <h1 className="text-slate-100 dark:text-gray-300">
           <NavLink>Github User Finder</NavLink>
         </h1>
@@ -52,12 +55,38 @@ const Header = () => {
                 Contact
               </NavLink>{" "}
             </li>
+            {!isLoggedIn && (
+              <li className="hidden md:block hover:text-gray-200">
+                <NavLink
+                  to="login"
+                  className=" p-3 bg-sky-800 rounded-md cursor-pointer hover:bg-sky-700"
+                >
+                  Login
+                </NavLink>
+              </li>
+            )}
+            {isLoggedIn && (
+              <li className="hidden md:block hover:text-gray-200">
+                <button
+                  onClick={() => handleLogin("logout")}
+                  className="p-3 bg-red-500 rounded-md cursor-pointer hover:bg-red-700"
+                >
+                  Logout
+                </button>
+              </li>
+            )}
             <li>
               <button
                 className="h-8 w-8 flex justify-center bg-slate-500 rounded-full items-center cursor-pointer dark:text-yellow-400"
                 onClick={toggleThemeHandler}
               >
-                {theme === "light" ? <BsFillMoonStarsFill /> : <LuSunMedium />}
+                {theme === null ? (
+                  <BsFillMoonStarsFill />
+                ) : theme === "light" ? (
+                  <BsFillMoonStarsFill />
+                ) : (
+                  <LuSunMedium />
+                )}
               </button>
             </li>
             <li className="md:hidden">
