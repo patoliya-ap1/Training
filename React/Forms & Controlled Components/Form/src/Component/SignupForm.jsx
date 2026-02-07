@@ -76,9 +76,12 @@ const SignupForm = () => {
             id="name"
             onChange={handleFormInput}
           />
-          {validateError.name && (
-            <p className="text-red-500 mt-1">{validateError.name}</p>
-          )}
+
+          <div className="h-5 mt-1">
+            {validateError.name && (
+              <p className="text-red-500">{validateError.name}</p>
+            )}
+          </div>
         </div>
 
         {/* Email */}
@@ -95,9 +98,11 @@ const SignupForm = () => {
             placeholder="Enter Email"
             onChange={handleFormInput}
           />
-          {validateError.email && (
-            <p className="text-red-500 mt-1">{validateError.email}</p>
-          )}
+          <div className="h-5 mt-1">
+            {validateError.email && (
+              <p className="text-red-500 mt-1">{validateError.email}</p>
+            )}
+          </div>
         </div>
 
         {/* Password */}
@@ -115,9 +120,11 @@ const SignupForm = () => {
             placeholder="Enter Password"
             onChange={handleFormInput}
           />
-          {validateError.password && (
-            <p className="text-red-500 mt-1">{validateError.password}</p>
-          )}
+          <div className="h-5 mt-1">
+            {validateError.password && (
+              <p className="text-red-500 mt-1">{validateError.password}</p>
+            )}
+          </div>
         </div>
 
         <button className="bg-sky-600 p-2 rounded-md w-full text-slate-100 shadow-md mt-5 transition-all duration-200 ease-out hover:bg-sky-400 cursor-pointer">
