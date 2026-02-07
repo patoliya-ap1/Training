@@ -5,3 +5,5 @@
 - CSS
 - JavaScript
 - TypeScript
+- React
+- Redux
