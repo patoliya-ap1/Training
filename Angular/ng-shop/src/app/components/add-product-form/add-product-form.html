@@ -1,0 +1,85 @@
+<div>
+  <div class="mb-3">
+    <app-category-banner
+      text="Add Products"
+      [image]="'images/add-product.jpg'"
+    ></app-category-banner>
+  </div>
+  <form #productForm="ngForm" class="grid gap-3" (ngSubmit)="onSubmit(productForm)">
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Title</mat-label>
+        <input matInput type="text" name="title" ngModel #title="ngModel" required minlength="5" />
+
+        @if (title.invalid && (title.dirty || title.touched)) {
+          <mat-error>
+            @if (title.errors?.['required']) {
+              <span>Name is required</span>
+            }
+            @if (title.errors?.['minlength']) {
+              <span>Name must be at least 5 characters long</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Price</mat-label>
+        <input matInput name="price" #price="ngModel" ngModel type="number" required />
+        @if (price.invalid && (price.dirty || price.touched)) {
+          <mat-error>
+            @if (price.errors?.['required']) {
+              <span>Price is required</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Thumbnail URL</mat-label>
+        <input matInput name="thumbnail" #thumbnail="ngModel" ngModel type="text" required />
+        @if (thumbnail.invalid && (thumbnail.dirty || thumbnail.touched)) {
+          <mat-error>
+            @if (thumbnail.errors?.['required']) {
+              <span>Thumbnail is required</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Description</mat-label>
+        <textarea
+          matInput
+          name="description"
+          #description="ngModel"
+          ngModel
+          rows="7"
+          minlength="100"
+          required
+        ></textarea>
+        @if (description.invalid && (description.dirty || description.touched)) {
+          <mat-error>
+            @if (description.errors?.['required']) {
+              <span>Description is required</span>
+            }
+            @if (description.errors?.['minlength']) {
+              <span>Description must be at least 100 characters long</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <button
+      [disabled]="!productForm.form.valid"
+      type="submit"
+      class="bg-sky-800 p-3 rounded-md text-slate-200 cursor-pointer hover:bg-sky-900 disabled:cursor-not-allowed disabled:bg-gray-400 flex justify-center"
+    >
+      <mat-icon>add</mat-icon>
+      <p>Add Product</p>
+    </button>
+  </form>
+</div>

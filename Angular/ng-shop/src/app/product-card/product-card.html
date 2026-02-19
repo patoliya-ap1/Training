@@ -1,13 +1,13 @@
-<div>
+<div class="">
   <div class="shadow-md hover:shadow-2xl flex justify-center p-4">
     <div class="">
       <div class="flex justify-center">
-        <div class="max-w-60">
-          <img [src]="product.thumbnail" width="100%" />
+        <div class="h-60">
+          <img [src]="product.thumbnail" class="object-cover w-full h-full" />
         </div>
       </div>
       <div class="h-15">
-        <p class="text-green-600">${{ product.price }}</p>
+        <p class="text-green-600">{{ product.price | currency: 'USD' }}</p>
       </div>
       <div class="h-15 overflow-hidden">
         <h3>{{ product.title.slice(0, 40) }}...</h3>
@@ -23,6 +23,7 @@
         </div>
         <div>
           <button
+            (click)="addToCart(product.id)"
             class="bg-sky-500 rounded-md text-slate-100 cursor-pointer hover:bg-sky-600 text-sm w-full p-2"
           >
             Add to cart

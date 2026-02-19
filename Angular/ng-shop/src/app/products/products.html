@@ -1,1 +1,4 @@
-<app-products-list [products]="products"></app-products-list>
+<div>
+  <app-filter-input (myFilterEvent)="selectCategory($event)"></app-filter-input>
+</div>
+<app-products-list [products]="filteredProducts"></app-products-list>

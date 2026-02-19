@@ -19,6 +19,15 @@
     <app-category-banner text="Books" [image]="'images/books.jpg'"></app-category-banner>
   </div>
   <div>
-    <app-products-list [products]="products"></app-products-list>
+    <h3 class="mb-2">Laptops</h3>
+    <app-products-list [products]="laptops" [limit]="4"></app-products-list>
+  </div>
+  <div>
+    <h3 class="mb-2">Mens Shoes</h3>
+    <app-products-list [products]="mensShoe" [limit]="4"></app-products-list>
+  </div>
+  <div>
+    <h3 class="mb-2">Mens Watches</h3>
+    <app-products-list [products]="mensWatches" [limit]="4"></app-products-list>
   </div>
 </div>

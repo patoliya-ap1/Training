@@ -1,0 +1,13 @@
+<mat-form-field>
+  <mat-label>Select Category</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option value="" (click)="selectCategory('')">All</mat-option>
+    @for (category of categories; track $index) {
+      <mat-option [value]="category" (click)="selectCategory(category)">{{ category }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+@if (selected) {
+  <p>You selected: {{ selected }}</p>
+}
