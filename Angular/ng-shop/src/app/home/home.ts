@@ -7,7 +7,7 @@ import { ProductState } from '../product-state.service';
 
 @Component({
   selector: 'app-home',
-  imports: [ImageBanner, ProductsList, CategoryBanner],
+  imports: [ProductsList, CategoryBanner],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -15,5 +15,5 @@ export class Home {
   globalState = inject(ProductState);
   laptops = this.globalState.getProductsByCategory('laptops');
   mensShoe = this.globalState.getProductsByCategory('mens-shoes');
-  mensWatches = this.globalState.getProductsByCategory("mens-watches")
+  mensWatches = this.globalState.getProductsByCategory('mens-watches');
 }

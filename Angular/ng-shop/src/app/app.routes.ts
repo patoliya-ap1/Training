@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { Products } from './products/products';
 import { About } from './about/about';
 import { AddProductForm } from './components/add-product-form/add-product-form';
+import { ProductDetails } from './components/product-details/product-details';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,10 @@ export const routes: Routes = [
   {
     path: 'products',
     component: Products,
+  },
+  {
+    path: 'productDetails/:id',
+    component: ProductDetails,
   },
   {
     path: 'add-product',

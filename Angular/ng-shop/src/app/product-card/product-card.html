@@ -1,11 +1,13 @@
 <div class="">
   <div class="shadow-md hover:shadow-2xl flex justify-center p-4">
     <div class="">
-      <div class="flex justify-center">
-        <div class="h-60">
-          <img [src]="product.thumbnail" class="object-cover w-full h-full" />
+      <a [routerLink]="['/productDetails', product.id]">
+        <div class="flex justify-center cursor-pointer">
+          <div class="h-60">
+            <img [src]="product.thumbnail" class="object-cover w-full h-full" />
+          </div>
         </div>
-      </div>
+      </a>
       <div class="h-15">
         <p class="text-green-600">{{ product.price | currency: 'USD' }}</p>
       </div>

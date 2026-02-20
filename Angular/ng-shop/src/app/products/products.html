@@ -1,4 +1,12 @@
 <div>
   <app-filter-input (myFilterEvent)="selectCategory($event)"></app-filter-input>
 </div>
+<p class="my-2">Total Products: {{ filteredProducts.length }}</p>
+<!-- <div class="space-x-2 space-y-2">
+  @for (page of pageArray; track $index) {
+    <button class="bg-sky-700 w-8 h-8 rounded-md text-slate-100 cursor-pointer hover:bg-sky-800">
+      {{ page }}
+    </button>
+  }
+</div> -->
 <app-products-list [products]="filteredProducts"></app-products-list>

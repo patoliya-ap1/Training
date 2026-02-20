@@ -980,6 +980,10 @@ export class ProductState {
     return this.products();
   }
 
+  getProductById(productId: number) {
+    return this.products().find(({ id }) => id == productId);
+  }
+
   addProduct(product: Product) {
     this.products.update((prev) => [product, ...prev]);
   }
@@ -987,6 +991,17 @@ export class ProductState {
   getProductsByCategory(filterCategory?: string) {
     return filterCategory
       ? this.products().filter(({ category }) => category == filterCategory)
+      : this.products();
+  }
+  getRelatedProducts(filterCategory?: string, productId?: number) {
+    return filterCategory
+      ? this.products().filter(({ category, id }) => {
+          if (id == productId) {
+            return false;
+          } else {
+            return category == filterCategory;
+          }
+        })
       : this.products();
   }
   getCategory() {

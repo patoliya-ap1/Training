@@ -19,6 +19,7 @@ interface Product {
 export class ProductsList {
   @Input() products: Product[] = [];
   @Input() limit?: any;
+  @Input() startIndex?: number = 0;
   addToCart(value: string) {
     console.log(value);
   }

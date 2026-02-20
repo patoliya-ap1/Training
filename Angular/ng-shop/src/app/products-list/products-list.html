@@ -1,5 +1,5 @@
 <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-  @for (product of products | slice: 0 : limit; track product.id) {
+  @for (product of products | slice: startIndex : limit; track product.id) {
     <app-product-card (addToCartEvent)="addToCart($event)" [product]="product"></app-product-card>
   } @empty {
     <p>No Product Found</p>
