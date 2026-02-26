@@ -1,0 +1,93 @@
+<div>
+  <div class="mb-3">
+    <app-category-banner
+      text="Add Products"
+      [image]="'images/add-product.jpg'"
+    ></app-category-banner>
+  </div>
+  <form [formGroup]="productForm" class="grid gap-3" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Title</mat-label>
+        <input matInput type="text" name="title" formControlName="title" />
+
+        @if (
+          productForm.get('title')?.invalid &&
+          (productForm.get('title')?.dirty || productForm.get('title')?.touched)
+        ) {
+          <mat-error>
+            @if (productForm.get('title')?.errors?.['required']) {
+              <span>Name is required</span>
+            }
+            @if (productForm.get('title')?.errors?.['minlength']) {
+              <span>Name must be at least 5 characters long</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Price</mat-label>
+        <input matInput name="price" formControlName="price" type="number" />
+        @if (
+          productForm.get('price')?.invalid &&
+          (productForm.get('price')?.dirty || productForm.get('price')?.touched)
+        ) {
+          <mat-error>
+            @if (productForm.get('price')?.errors?.['required']) {
+              <span>Price is required</span>
+            }
+            @if (productForm.get('price')?.errors?.['pattern']) {
+              <span>Enter two digit price</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Thumbnail URL</mat-label>
+        <input matInput name="thumbnail" formControlName="thumbnail" type="text" />
+        @if (
+          productForm.get('thumbnail')?.invalid &&
+          (productForm.get('thumbnail')?.dirty || productForm.get('thumbnail')?.touched)
+        ) {
+          <mat-error>
+            @if (productForm.get('thumbnail')?.errors?.['required']) {
+              <span>Thumbnail is required</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full">
+        <mat-label>Enter Product Description</mat-label>
+        <textarea matInput name="description" rows="7" formControlName="description"></textarea>
+        @if (
+          productForm.get('description')?.invalid &&
+          (productForm.get('description')?.dirty || productForm.get('description')?.touched)
+        ) {
+          <mat-error>
+            @if (productForm.get('description')?.errors?.['required']) {
+              <span>Description is required</span>
+            }
+            @if (productForm.get('description')?.errors?.['minlength']) {
+              <span>Description must be at least 100 characters long</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <button
+      [disabled]="!productForm.valid"
+      type="submit"
+      class="bg-sky-800 p-3 rounded-md text-slate-200 cursor-pointer hover:bg-sky-900 disabled:cursor-not-allowed disabled:bg-gray-400 flex justify-center"
+    >
+      <mat-icon>add</mat-icon>
+      <p>Add Product</p>
+    </button>
+  </form>
+  <div></div>
+</div>

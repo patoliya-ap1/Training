@@ -1,0 +1,45 @@
+<header class="bg-sky-800 p-4 text-slate-100">
+  <div class="flex justify-center">
+    <div class="flex justify-between w-[90%] items-end">
+      <div>
+        <a routerLink="">
+          <img src="favicon.ico" class="w-4" />
+          <h1 class="text-2xl">ng shop</h1>
+        </a>
+      </div>
+      <nav>
+        <ul class=" space-x-4 items-center hidden sm:flex">
+          <li>
+            <a
+              routerLink=""
+              routerLinkActive="text-slate-400"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+          </li>
+          <li><a routerLink="/products" routerLinkActive="text-slate-400">Products</a></li>
+          <li><a routerLink="/about" routerLinkActive="text-slate-400">About</a></li>
+          <li>
+            <button matButton="elevated">
+              <a
+                routerLink="/add-product"
+                class="flex items-center"
+                routerLinkActive="text-slate-400"
+              >
+                <mat-icon>add</mat-icon>
+                <p>Add Product</p>
+              </a>
+            </button>
+          </li>
+        </ul>
+        <ul class="sm:hidden">
+          <li>
+            <button matMiniFab aria-label="Example icon button with a menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

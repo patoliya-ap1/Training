@@ -1,0 +1,32 @@
+@if (product) {
+  <div>
+    <div class="flex justify-center">
+      <div class="lg:w-[70%]">
+        <div class="grid md:grid-cols-2 gap-3 items-center">
+          <div class="flex justify-center md:block">
+            <img [src]="product.thumbnail" />
+          </div>
+          <div class="space-y-3">
+            <h2 class="text-2xl">{{ product.title }}</h2>
+            <p class="text-green-600">{{ product.price | currency: 'USD' }}</p>
+            <p>{{ product.description }}</p>
+            <div class="space-x-3">
+              <button class="bg-amber-400 p-3 rounded-md hover:bg-amber-500 cursor-pointer">
+                Buy now
+              </button>
+              <button
+                class="bg-sky-500 p-3 rounded-md hover:bg-sky-600 cursor-pointer text-slate-200"
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="my-5">Related Products</p>
+    @if (relatedProducts) {
+      <app-products-list [products]="relatedProducts"></app-products-list>
+    }
+  </div>
+}
